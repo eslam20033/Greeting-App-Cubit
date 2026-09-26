@@ -16,8 +16,8 @@
 <!-- تأكد من وضع الصورتين داخل مجلد lib/screenshots/ باسم 1.png و 2.png (أو قم بتعديل الأسماء في الكود أدناه لتطابق أسماء صورك) -->
 <div align="center">
   <img src="lib/screenshots/1.png" alt="Initial State" width="250"/>
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="lib/screenshots/2.png" alt="Greeting State" width="250"/>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="lib/screenshots/2.png" alt="Greeting State" width="250"/>
 </div>
 
 ## 🚀 فكرة التطبيق
