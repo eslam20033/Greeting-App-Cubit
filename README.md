@@ -1,28 +1,46 @@
-# Greeting App - Cubit Task 👋
+<h1 align="center">👋 Greeting App - Cubit Task</h1>
 
-تطبيق بسيط مبني بـ **Flutter** بيوضح إزاي نستخدم الـ **Cubit** (من مكتبة `flutter_bloc`) لإدارة الحالة (State Management) بطريقة عملية ومباشرة[cite: 1].
+<p align="center">
+  <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" />
+  <img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white" />
+  <img src="https://img.shields.io/badge/BLoC-000000?style=for-the-badge&logo=bloc&logoColor=white" />
+</p>
+
+<p align="center">
+  تطبيق بسيط ومباشر مبني بـ <b>Flutter</b> يوضح كيفية استخدام الـ <b>Cubit</b> (من مكتبة <code>flutter_bloc</code>) لإدارة الحالة (State Management) بكفاءة واحترافية.
+</p>
+
+---
+
+## 📸 الواجهة (Screenshots)
+<!-- تأكد من وضع الصورتين داخل مجلد lib/screenshots/ باسم 1.png و 2.png (أو قم بتعديل الأسماء في الكود أدناه لتطابق أسماء صورك) -->
+<div align="center">
+  <img src="lib/screenshots/1.png" alt="Initial State" width="250"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="lib/screenshots/2.png" alt="Greeting State" width="250"/>
+</div>
 
 ## 🚀 فكرة التطبيق
-التطبيق عبارة عن شاشة واحدة بتسمح للمستخدم يكتب اسمه وتظهرله رسالة ترحيب مخصصة[cite: 1]. 
+التطبيق عبارة عن شاشة واحدة تتيح للمستخدم إدخال اسمه لتظهر له رسالة ترحيب مخصصة. 
 
-اعتمدت في بناء التطبيق على أساسيات إدارة الحالة:
-- **الحالة الابتدائية (Initial State):** التطبيق بيعرض رسالة الترحيب "Hello! 👋" قبل أي إدخال[cite: 1].
-- **تحديث الحالة (State Update):** بمجرد ما المستخدم يكتب اسمه ويدوس على "Show Greeting"، الـ Cubit بيعمل `emit` للحالة الجديدة، والـ `BlocBuilder` بيتولى تحديث النص في الـ UI فوراً عشان يعرض "Hello [Name]! 👋"[cite: 1].
+تم الاعتماد على أساسيات إدارة الحالة باستخدام `Cubit` كالتالي:
+- **الحالة الابتدائية (Initial State):** يعرض التطبيق رسالة الترحيب "Hello! 👋" كحالة افتراضية قبل أي إدخال.
+- **تحديث الحالة (State Update):** بمجرد كتابة الاسم والضغط على زر "Show Greeting"، يقوم الـ Cubit بعمل `emit` للحالة الجديدة، ويتولى `BlocBuilder` تحديث النص في واجهة المستخدم (UI) فوراً ليعرض "! [Name] Hello 👋".
 
 ## 🛠️ التقنيات والأدوات
-تم استخدام المكونات دي عشان نطلع الكود بشكل نظيف[cite: 1]:
-- **Cubit:** للتحكم في الـ Business Logic وتحديث حالة الترحيب.
-- **BlocProvider:** لتوفير الـ Cubit جوه الـ Widget tree.
-- **BlocBuilder:** لإعادة بناء (Rebuild) الجزء الخاص بالنص بس لما الحالة تتغير.
-- **TextEditingController:** لقراءة النص اللي المستخدم بيكتبه.
+تم استخدام المكونات التالية لضمان كتابة كود نظيف وقابل للصيانة:
+- **Cubit:** للتحكم في منطق العمل (Business Logic) وتحديث حالة الترحيب.
+- **BlocProvider:** لتوفير الـ Cubit داخل شجرة الـ Widgets (Widget Tree).
+- **BlocBuilder:** لإعادة بناء (Rebuild) الجزء المخصص للنص فقط عند تغير الحالة، مما يحسن الأداء.
+- **TextEditingController:** لقراءة النص المُدخل من قبل المستخدم.
 
 ## 📁 هيكلة المشروع (Folder Structure)
-التقسيمة جوه فولدر الـ `lib` معمولة بشكل منطقي يفصل بين الواجهة واللوجيك:
+التقسيمة داخل مجلد `lib` مصممة بشكل منطقي يفصل بين واجهة المستخدم ومنطق العمل:
 ```text
 lib/
- ┣ cubit/
- ┃ ┗ greeting_cubit.dart    # اللوجيك الخاص بتغيير نص الترحيب
- ┣ screens/
- ┃ ┗ greeting_screen.dart   # واجهة المستخدم (UI)
- ┣ screenshots/             # صور التطبيق لملف الريدمي
- ┗ main.dart                # نقطة البداية وتهيئة الـ BlocProvider
+├── cubit/
+│   └── greeting_cubit.dart    # اللوجيك الخاص بتغيير نص الترحيب
+├── screens/
+│   └── greeting_screen.dart   # واجهة المستخدم (UI)
+├── screenshots/               # صور التطبيق لملف الريدمي
+└── main.dart                  # نقطة البداية وتهيئة الـ BlocProvider
