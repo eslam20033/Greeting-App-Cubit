@@ -1,17 +1,28 @@
-# greeting_app_cubit
+# Greeting App - Cubit Task 👋
 
-A new Flutter project.
+تطبيق بسيط مبني بـ **Flutter** بيوضح إزاي نستخدم الـ **Cubit** (من مكتبة `flutter_bloc`) لإدارة الحالة (State Management) بطريقة عملية ومباشرة[cite: 1].
 
-## Getting Started
+## 🚀 فكرة التطبيق
+التطبيق عبارة عن شاشة واحدة بتسمح للمستخدم يكتب اسمه وتظهرله رسالة ترحيب مخصصة[cite: 1]. 
 
-This project is a starting point for a Flutter application.
+اعتمدت في بناء التطبيق على أساسيات إدارة الحالة:
+- **الحالة الابتدائية (Initial State):** التطبيق بيعرض رسالة الترحيب "Hello! 👋" قبل أي إدخال[cite: 1].
+- **تحديث الحالة (State Update):** بمجرد ما المستخدم يكتب اسمه ويدوس على "Show Greeting"، الـ Cubit بيعمل `emit` للحالة الجديدة، والـ `BlocBuilder` بيتولى تحديث النص في الـ UI فوراً عشان يعرض "Hello [Name]! 👋"[cite: 1].
 
-A few resources to get you started if this is your first Flutter project:
+## 🛠️ التقنيات والأدوات
+تم استخدام المكونات دي عشان نطلع الكود بشكل نظيف[cite: 1]:
+- **Cubit:** للتحكم في الـ Business Logic وتحديث حالة الترحيب.
+- **BlocProvider:** لتوفير الـ Cubit جوه الـ Widget tree.
+- **BlocBuilder:** لإعادة بناء (Rebuild) الجزء الخاص بالنص بس لما الحالة تتغير.
+- **TextEditingController:** لقراءة النص اللي المستخدم بيكتبه.
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📁 هيكلة المشروع (Folder Structure)
+التقسيمة جوه فولدر الـ `lib` معمولة بشكل منطقي يفصل بين الواجهة واللوجيك:
+```text
+lib/
+ ┣ cubit/
+ ┃ ┗ greeting_cubit.dart    # اللوجيك الخاص بتغيير نص الترحيب
+ ┣ screens/
+ ┃ ┗ greeting_screen.dart   # واجهة المستخدم (UI)
+ ┣ screenshots/             # صور التطبيق لملف الريدمي
+ ┗ main.dart                # نقطة البداية وتهيئة الـ BlocProvider
